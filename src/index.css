@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "@fontsource-variable/rubik";
+
+@theme inline {
+    --font-sans: "Rubik Variable", sans-serif;
+    --font-header: var(--font-sans);
+}
+
+@layer base {
+    html {
+        @apply font-sans;
+    }
+}
