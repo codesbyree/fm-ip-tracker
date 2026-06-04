@@ -1,5 +1,11 @@
+import { ToastContainer } from "react-toastify";
 import Homepage from "./app/homepage";
 
 export default function App() {
-  return <Homepage />;
+  return (
+    <>
+      <Homepage />
+      <ToastContainer />
+    </>
+  );
 }
