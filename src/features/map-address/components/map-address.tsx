@@ -1,8 +1,17 @@
 import { useEffect } from "react";
+import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 
 import { useIpifyStore } from "../../../stores/ipify.stores";
 import type { IpifyResponse } from "../../../types/ipify.type";
+
+const customIcon = new L.Icon({
+  iconUrl: "/icon-location.svg",
+  iconRetinaUrl: "/icon-location.svg",
+  iconSize: [32, 40],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
 
 export default function MapAddress() {
   const trackedIP = useIpifyStore((s) => s.tracked);
@@ -14,7 +23,7 @@ export default function MapAddress() {
     <MapContainer center={[lat, lang]} zoom={17} scrollWheelZoom={true} zoomControl={false} className="h-[calc(100dvh-300px)] w-full relative z-0">
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <Marker position={[lat, lang]}>
+      <Marker position={[lat, lang]} icon={customIcon}>
         <Popup>{location}</Popup>
       </Marker>
 
