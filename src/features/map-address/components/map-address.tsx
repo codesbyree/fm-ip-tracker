@@ -20,7 +20,7 @@ export default function MapAddress() {
   const location = trackedIP ? `${trackedIP.location.city}, ${trackedIP.location.region} - ${trackedIP.location.country}` : "";
 
   return (
-    <MapContainer center={[lat, lang]} zoom={17} scrollWheelZoom={true} zoomControl={false} className="h-[calc(100dvh-300px)] w-full relative z-0">
+    <MapContainer center={[lat, lang]} zoom={17} scrollWheelZoom={true} zoomControl={false} className="h-[calc(100dvh-300px)] lg:h-[calc(100dvh-280px)] w-full relative z-0">
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
       <Marker position={[lat, lang]} icon={customIcon}>
